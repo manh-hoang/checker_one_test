@@ -51,8 +51,10 @@ public class checker_one_controller extends HttpServlet {
 			} else if (action.equals("delete")) {
 				String id_delete = request.getParameter("id_delete");
 				boolean check_delete = cus_imp.delete(id_delete);
-				view = "views/index.jsp";
-				request.setAttribute("tbao", "xóa rồi nha người anh em");
+				String xoa = "Xoa thanh cong roi ban";
+				request.setAttribute("thongbao", xoa);
+				request.getRequestDispatcher("views/delete.jsp").forward(request, response);
+				
 			} else if (action.equals("detail")) {
 				String id_detail = request.getParameter("id_cus");
 				Customer cus_detail = cus_imp.get_infor(id_detail);
@@ -103,7 +105,7 @@ public class checker_one_controller extends HttpServlet {
 			}
 				view = "views/create.jsp";
 				request.setAttribute("tbao", notifi);
-		} else if (action.equals("edit")) {
+		} else if ("edit".equals(action)) {
 			try {
 				String old_id = request.getParameter("old_cus_id");
 				String cus_name = request.getParameter("cus_name");
