@@ -51,7 +51,7 @@ public class changelange extends HttpServlet {
 			break;
 		}
 		
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect("checker_one ");
 		
 		
 		
